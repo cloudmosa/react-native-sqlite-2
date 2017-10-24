@@ -1,4 +1,5 @@
 using ReactNative.Bridge;
+using ReactNative.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,7 +56,7 @@ namespace RNSqlite2
 #if WINDOWS_UWP
                 string path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, name);
 #else
-                string path = Path.Combine(PCLStorage.FileSystem.Current.LocalStorage.Path, name);
+                string path = Path.Combine(WindowsStorage.LocalStoragePath, name);
 #endif
                 SqliteConnection conn = new SqliteConnection("Filename=" + path);
                 DATABASES[name] = conn;
